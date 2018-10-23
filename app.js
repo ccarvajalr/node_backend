@@ -2,6 +2,14 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var FB = require('fb');
+
+var mysqlDB = require('./database/mysql.database');
+
+mysqlDB.connect(function(err) {
+    if (err) throw err
+    console.log('Base de datos  Mysql \x1b[32m%s\x1b[0m', 'online');
+})
 
 //Inicializar variables
 var app = express();
@@ -16,6 +24,8 @@ app.use(bodyParser.json());
 var appRoutes = require('./routes/app');
 var usuarioRoutes = require('./routes/usuario');
 var loginRoutes = require('./routes/login');
+var facebookRoutes = require('./routes/facebook');
+
 
 
 //Conexion 
@@ -40,6 +50,7 @@ mongoose.connect(db, function(error) {
 //Rutas
 app.use('/usuario', usuarioRoutes);
 app.use('/login', loginRoutes);
+app.use('/facebook/', facebookRoutes);
 app.use('/', appRoutes);
 
 

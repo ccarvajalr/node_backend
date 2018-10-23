@@ -11,6 +11,7 @@ var Usuario = require('../models/usuario');
 app.post('/', (req, res) => {
 
     var body = req.body;
+    //'SELECT * FROM users WHERE id = ?', [userId],
     Usuario.findOne({ email: body.email }, (err, usuarioDB) => {
 
         if (err) {

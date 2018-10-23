@@ -2,7 +2,7 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-
+var mysqlDB = require('../database/mysql.database');
 var mdAutenticacion = require('../middlewares/autenticacion');
 //var SEED = require('../config/config').SEED;
 
@@ -18,7 +18,7 @@ var Usuario = require('../models/usuario');
 //========================================
 app.get('/', (req, res, next) => {
 
-    Usuario.find({}, 'nombre email img role').exec((err, usuarios) => {
+    /*Usuario.find({}, 'nombre email img role').exec((err, usuarios) => {
 
         if (err) {
             return res.status(500).json({
@@ -27,9 +27,21 @@ app.get('/', (req, res, next) => {
                 errors: err
             });
         }
+        
+    });*/
+
+    //mysql usuarios
+    let sql = 'select nombre, email, idRol, visible from usuarios'
+    mysqlDB.query(sql, (error, rows, fields) => {
+        if (error) throw error
+            //console.log(rows[0]);
+        rows.forEach(function(row) {
+            console.log(row);
+        });
+
         res.status(200).json({
             ok: true,
-            usuario: usuarios
+            usuario: rows
         });
     });
 
