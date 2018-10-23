@@ -1,5 +1,0 @@
-module.exports.SEED = 'SEED_UNICO';
-module.exports.FacebooksecretId = '';
-module.exports.FacebookAccessToken = 'EAACbiPYfdA0BAIiCpTh7lbSEGZBk1TAQwov4eJ2hZAQy29UZBGUbd8rjOtQhoBofsssp1Aus52sagbFbPQLTvSTsppfZAnVxZBZAW12wWzzlQNeJZARQ5F01rgq6xvaSyjP5yTrG6MIA2IZAVTfDZAXR7G2bq7cmY8ZA6SrK4CAc8MCTt488RZAjj4ZCmNISZBjIOLDFgZBpk9WgQF9AZDZD';
-module.exports.FacebookappId = '171012547113997';
-module.exports.FacebookAppSecret = 'd52760a0a50022bcdac2bc60451ae83e'
